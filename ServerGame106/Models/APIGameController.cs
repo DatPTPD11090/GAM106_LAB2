@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ServerGame106.Data;
 using ServerGame106.DTO;
+using ServerGame106.Service;
 using ServerGame106.ViewModel;
 using System.Linq.Expressions;
 
@@ -17,6 +18,7 @@ namespace ServerGame106.Models
     public class APIGameController : ControllerBase
     {
         private readonly ApplicationDbContext _db;
+        private readonly IEmailService _emailService;
         protected ResponseApi _response;
         private readonly UserManager<ApplicationUser> _userManager;
         public APIGameController(ApplicationDbContext db, UserManager<ApplicationUser> userManager)
@@ -26,6 +28,12 @@ namespace ServerGame106.Models
             _userManager = userManager;
             
             
+        }
+        public APIGameController(ApplicationDbContext db,
+            IEmailService emailService)
+        {
+            _db = db;
+            _emailService = emailService;
         }
         [HttpGet("GetAllGameLevel")]
         public async Task<IActionResult> GetAllGameLevel()
