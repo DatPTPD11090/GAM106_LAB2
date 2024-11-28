@@ -33,7 +33,7 @@ namespace ServerGame106.Models
             _response = new();
             _userManager = userManager;
             _emailService = emailService;
-            _configuration = configuration;
+            _configuration = configuration; 
 
         }
         [HttpGet("GetAllGameLevel")]
