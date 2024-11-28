@@ -152,14 +152,14 @@ namespace ServerGame106.Models
                     };
 
                     _response.IsSuccess = true;
-                    _response.Notification = "Dang nhap thanh cong";
+                    _response.Notification = "Đăng nhập thành công";
                     _response.Data = data;
                     return Ok(_response);
                 }
                 else
                 {
                     _response.IsSuccess = false;
-                    _response.Notification = "Dang nhap that bai";
+                    _response.Notification = "Đăng nhập thất bại";
                     _response.Data = null;
                     return BadRequest(_response);
 
@@ -168,7 +168,7 @@ namespace ServerGame106.Models
             catch (Exception ex)
             {
                 _response.IsSuccess = false;
-                _response.Notification = "Co loi";
+                _response.Notification = "Có lỗi";
                 _response.Data = ex.Message;
                 return BadRequest(_response);
             }
